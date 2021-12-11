@@ -153,7 +153,7 @@ void tare(hx711_t *hx711, uint8_t times, uint8_t channel) {
 }
 
 //############################################################################################
-float get_units(hx711_t *hx711, int8_t times, uint8_t channel) {
+float get_weight(hx711_t *hx711, int8_t times, uint8_t channel) {
   // Read load cell
 	read(hx711, channel);
 	float scale = 0;
