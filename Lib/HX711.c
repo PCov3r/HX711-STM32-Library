@@ -52,7 +52,7 @@ void set_gain(hx711_t *hx711, uint8_t Again, uint8_t Bgain){
 
 //#############################################################################################
 void set_offset(hx711_t *hx711, long offset, uint8_t channel){
-	if(channel == 0) hx711->Aoffset = offset;
+	if(channel == CHANNEL_A) hx711->Aoffset = offset;
 	else hx711->Boffset = offset;
 }
 
@@ -141,7 +141,7 @@ long read_average(hx711_t *hx711, int8_t times, uint8_t channel) {
 //############################################################################################
 double get_value(hx711_t *hx711, int8_t times, uint8_t channel) {
 	long offset = 0;
-	if(channel == 0) offset = hx711->Aoffset;
+	if(channel == CHANNEL_A) offset = hx711->Aoffset;
 	else offset = hx711->Boffset;
 	return read_average(hx711, times, channel) - offset;
 }
@@ -157,7 +157,7 @@ float get_weight(hx711_t *hx711, int8_t times, uint8_t channel) {
   // Read load cell
 	read(hx711, channel);
 	float scale = 0;
-	if(channel == 0) scale = hx711->Ascale;
+	if(channel == CHANNEL_A) scale = hx711->Ascale;
 	else scale = hx711->Bscale;
 	return get_value(hx711, times, channel) / scale;
 }
