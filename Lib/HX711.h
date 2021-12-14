@@ -14,6 +14,8 @@
 
 #define CHANNEL_A 0
 #define CHANNEL_B 1
+#define interrupts() __enable_irq()
+#define noInterrupts() __disable_irq()
 
 typedef struct
 {
