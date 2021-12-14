@@ -12,6 +12,9 @@
 #include "stdbool.h"
 #include "main.h"
 
+#define CHANNEL_A 0
+#define CHANNEL_B 1
+
 typedef struct
 {
   GPIO_TypeDef  *clk_gpio;
