@@ -148,6 +148,7 @@ double get_value(hx711_t *hx711, int8_t times, uint8_t channel) {
 
 //############################################################################################
 void tare(hx711_t *hx711, uint8_t times, uint8_t channel) {
+	read(hx711, channel); // Change channel
 	double sum = read_average(hx711, times, channel);
 	set_offset(hx711, sum, channel);
 }
