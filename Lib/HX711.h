@@ -39,6 +39,7 @@ void set_gain(hx711_t *hx711, uint8_t Again, uint8_t Bgain);
 
 /* Load cell reading functions */
 void tare(hx711_t *hx711, uint8_t times, uint8_t channel);
+void tare_all(hx711_t *hx711, uint8_t times);
 float get_weight(hx711_t *hx711, int8_t times, uint8_t channel);
 
 /* Others */
