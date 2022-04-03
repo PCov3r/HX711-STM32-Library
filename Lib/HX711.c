@@ -155,6 +155,12 @@ void tare(hx711_t *hx711, uint8_t times, uint8_t channel) {
 }
 
 //############################################################################################
+void tare_all(hx711_t *hx711, uint8_t times) {
+	tare(hx711, times, CHANNEL_A);
+	tare(hx711, times, CHANNEL_B);
+}
+
+//############################################################################################
 float get_weight(hx711_t *hx711, int8_t times, uint8_t channel) {
   // Read load cell
 	read(hx711, channel);
