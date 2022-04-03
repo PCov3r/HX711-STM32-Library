@@ -31,7 +31,8 @@ void hx711_init(hx711_t *hx711, GPIO_TypeDef *clk_gpio, uint16_t clk_pin, GPIO_T
 
 //#############################################################################################
 void set_scale(hx711_t *hx711, float Ascale, float Bscale){
-  // Set the scale. To calibrate the cell, run the program with a scale of 1, call the tare function and then the get_units function. The obtained weight is the parameter to pass to scale
+  // Set the scale. To calibrate the cell, run the program with a scale of 1, call the tare function and then the get_units function. 
+  // Divide the obtained weight by the real weight. The result is the parameter to pass to scale
 	hx711->Ascale = Ascale;
 	hx711->Bscale = Bscale;
 }
