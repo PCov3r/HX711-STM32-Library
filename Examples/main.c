@@ -23,13 +23,13 @@ void init_weight(hx711_t *hx711){
 	/* Initialize the hx711 sensors */
 	hx711_init(hx711, GPIOC, GPIO_PIN_12, GPIOC, GPIO_PIN_10);
   
-  /* Configure gain for each channel (see datasheet for details) */
+	/* Configure gain for each channel (see datasheet for details) */
 	set_gain(hx711, 128, 32);
 
-  /* Set HX711 scaling factor (see README for procedure) */
+	/* Set HX711 scaling factor (see README for procedure) */
 	set_scale(hx711, -44.25, -10.98);
 
-  /* Tare weight */
+	/* Tare weight */
 	tare_all(hx711, 10);
 
 	sprintf(buffer,"HX711 module has been initialized\n\r");
@@ -43,19 +43,19 @@ void init_weight(hx711_t *hx711){
 
 float measure_weight(hx711_t hx711, hx711_t hx711b){
 	long weightA = 0;
-  long weightB = 0;
+	long weightB = 0;
 
-  // Measure the weight for channel A
-    weightA = get_weight(&hx711, 10, CHANNEL_A);
-  // Weight cannot be negative
-    weightA = (weightA < 0) ? 0 : weightA;
+	// Measure the weight for channel A
+	weightA = get_weight(&hx711, 10, CHANNEL_A);
+	// Weight cannot be negative
+	weightA = (weightA < 0) ? 0 : weightA;
 
-  // Measure the weight for channel B
-    weightB = get_weight(&hx711, 10, CHANNEL_B);
-  // Weight cannot be negative
-    weightB = (weightB < 0) ? 0 : weightB;
-  
-    return weightA;
+	// Measure the weight for channel B
+	weightB = get_weight(&hx711, 10, CHANNEL_B);
+	// Weight cannot be negative
+	weightB = (weightB < 0) ? 0 : weightB;
+
+	return weightA;
 }
 
 
